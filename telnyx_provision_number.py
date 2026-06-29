@@ -57,7 +57,7 @@ def provision(phone_number: str):
     r = requests.post(
         f"{BASE}/texml_applications",
         json={
-            "application_name": "CivicConnect",
+            "application_name": "LOOP",
             "webhook_url": webhook_url,
             "webhook_api_version": "API v2",
         },

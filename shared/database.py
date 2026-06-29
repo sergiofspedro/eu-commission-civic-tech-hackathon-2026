@@ -1,8 +1,8 @@
-"""SQLite vote and opinion storage. DB file lives at /data/civicconnect.db in container."""
+"""SQLite vote and opinion storage. DB file lives at /data/loop.db in container."""
 import hashlib, os, sqlite3
 from datetime import datetime
 
-DB_PATH = os.environ.get("DB_PATH", "/data/civicconnect.db")
+DB_PATH = os.environ.get("DB_PATH", "/data/loop.db")
 
 
 def _conn():
@@ -35,7 +35,7 @@ def init_db():
 
 
 def _hash(user_id: str) -> str:
-    return hashlib.sha256(f"civicconnect:{user_id}".encode()).hexdigest()[:16]
+    return hashlib.sha256(f"loop:{user_id}".encode()).hexdigest()[:16]
 
 
 def record_vote(user_id: str, consultation_id: str, vote: str) -> bool:

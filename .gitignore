@@ -1,5 +1,5 @@
 # Secrets — never commit
-civicconnect.env
+loop.env
 *.env
 .env.*
 !*.env.example

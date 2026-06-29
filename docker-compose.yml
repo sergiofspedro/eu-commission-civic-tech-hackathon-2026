@@ -1,11 +1,11 @@
 version: "3.9"
 
 networks:
-  civicconnect-net:
+  loop-net:
     driver: bridge
 
 volumes:
-  civicconnect-data:
+  loop-data:
 
 services:
   telegram-bot:
@@ -14,13 +14,13 @@ services:
     ports:
       - "8100:8100"
     env_file:
-      - civicconnect.env
+      - loop.env
     environment:
       - PUBLIC_DOMAIN=${PUBLIC_DOMAIN:-your-domain.com}
     volumes:
-      - civicconnect-data:/app/data
+      - loop-data:/app/data
     networks:
-      - civicconnect-net
+      - loop-net
     mem_limit: 256m
     cpus: "1.0"
 
@@ -30,10 +30,10 @@ services:
     ports:
       - "8200:8200"
     env_file:
-      - civicconnect.env
+      - loop.env
     volumes:
-      - civicconnect-data:/app/data
+      - loop-data:/app/data
     networks:
-      - civicconnect-net
+      - loop-net
     mem_limit: 256m
     cpus: "1.0"

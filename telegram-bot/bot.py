@@ -1,4 +1,4 @@
-"""EU CivicConnect Telegram Bot — webhook mode on port 8100."""
+"""LOOP Telegram Bot — webhook mode on port 8100."""
 import logging, os, sys
 
 sys.path.insert(0, "/app/shared")
@@ -12,7 +12,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger(__name__)
 
-TOKEN = os.environ["CIVICCONNECT_TELEGRAM_TOKEN"]
+TOKEN = os.environ["LOOP_TELEGRAM_TOKEN"]
 DOMAIN = os.environ.get("PUBLIC_DOMAIN", "your-domain.com")
 CONSULTATION_IDS = list(CONSULTATIONS.keys())
 
@@ -67,7 +67,7 @@ async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     uid = user.id
     await update.message.reply_text(
-        f"👋 Welcome to *EU CivicConnect*, {user.first_name}!\n\n"
+        f"👋 Welcome to *LOOP*, {user.first_name}!\n\n"
         "This platform lets you participate in real public consultations — "
         "at municipal, national, and European levels.\n\n"
         "Below you'll find two open consultations. Vote, share your view, "

@@ -29,7 +29,7 @@ def main():
     )
 
     required = [
-        "CIVICCONNECT_TELEGRAM_TOKEN",
+        "LOOP_TELEGRAM_TOKEN",
         "TELNYX_API_KEY",
         "TELNYX_PUBLIC_KEY",
         "OPENROUTER_API_KEY",
@@ -45,7 +45,7 @@ def main():
         lines.append(f'{key}="{secret.secret_value}"')
         print(f"  {key} ✓")
 
-    out = "civicconnect.env"
+    out = "loop.env"
     with open(out, "w") as f:
         f.write("\n".join(lines) + "\n")
     print(f"\nWritten to {out}")
