@@ -1,0 +1,39 @@
+version: "3.9"
+
+networks:
+  civicconnect-net:
+    driver: bridge
+
+volumes:
+  civicconnect-data:
+
+services:
+  telegram-bot:
+    build: ./telegram-bot
+    restart: unless-stopped
+    ports:
+      - "8100:8100"
+    env_file:
+      - civicconnect.env
+    environment:
+      - PUBLIC_DOMAIN=${PUBLIC_DOMAIN:-your-domain.com}
+    volumes:
+      - civicconnect-data:/app/data
+    networks:
+      - civicconnect-net
+    mem_limit: 256m
+    cpus: "1.0"
+
+  voice-bot:
+    build: ./voice-bot
+    restart: unless-stopped
+    ports:
+      - "8200:8200"
+    env_file:
+      - civicconnect.env
+    volumes:
+      - civicconnect-data:/app/data
+    networks:
+      - civicconnect-net
+    mem_limit: 256m
+    cpus: "1.0"

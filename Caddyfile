@@ -1,0 +1,16 @@
+your-domain.com {
+    # Telegram bot webhook
+    handle /telegram* {
+        reverse_proxy localhost:8100
+    }
+
+    # Voice bot (Telnyx TeXML webhooks)
+    handle /voice* {
+        reverse_proxy localhost:8200
+    }
+
+    # Health check
+    handle /health {
+        respond "OK" 200
+    }
+}

@@ -1,0 +1,140 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="560" fill="#f8f9fb" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a2340">EU CivicConnect — System Architecture</text>
+  <text x="450" y="56" text-anchor="middle" font-size="12" fill="#666">EU Commission Civic Tech Hackathon · Brussels · June 2026</text>
+
+  <!-- ── USERS row ── -->
+  <!-- Citizen with phone -->
+  <rect x="50" y="90" width="120" height="76" rx="10" fill="#e8f0fe" stroke="#4a7aec" stroke-width="1.5"/>
+  <text x="110" y="112" text-anchor="middle" font-size="22">📱</text>
+  <text x="110" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Citizen</text>
+  <text x="110" y="148" text-anchor="middle" font-size="10" fill="#555">Telegram app</text>
+  <text x="110" y="162" text-anchor="middle" font-size="10" fill="#555">on smartphone</text>
+
+  <!-- Citizen with landline -->
+  <rect x="50" y="186" width="120" height="76" rx="10" fill="#e8f0fe" stroke="#4a7aec" stroke-width="1.5"/>
+  <text x="110" y="208" text-anchor="middle" font-size="22">☎️</text>
+  <text x="110" y="228" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Citizen</text>
+  <text x="110" y="244" text-anchor="middle" font-size="10" fill="#555">Landline or</text>
+  <text x="110" y="258" text-anchor="middle" font-size="10" fill="#555">any phone</text>
+
+  <!-- ── INTERNET arrow ── -->
+  <line x1="170" y1="128" x2="230" y2="128" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <line x1="170" y1="224" x2="230" y2="224" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="200" y="145" text-anchor="middle" font-size="9" fill="#999">HTTPS</text>
+  <text x="200" y="213" text-anchor="middle" font-size="9" fill="#999">PSTN</text>
+
+  <!-- ── ENTRY POINT: Caddy / Telnyx ── -->
+  <rect x="230" y="90" width="130" height="76" rx="10" fill="#fff3e0" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="295" y="112" text-anchor="middle" font-size="20">🔒</text>
+  <text x="295" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Caddy</text>
+  <text x="295" y="148" text-anchor="middle" font-size="10" fill="#555">HTTPS reverse</text>
+  <text x="295" y="162" text-anchor="middle" font-size="10" fill="#555">proxy + TLS cert</text>
+
+  <rect x="230" y="186" width="130" height="76" rx="10" fill="#fff3e0" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="295" y="208" text-anchor="middle" font-size="20">📡</text>
+  <text x="295" y="228" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Telnyx</text>
+  <text x="295" y="244" text-anchor="middle" font-size="10" fill="#555">Phone number</text>
+  <text x="295" y="258" text-anchor="middle" font-size="10" fill="#555">provider (PSTN)</text>
+
+  <!-- arrows to bots -->
+  <line x1="360" y1="128" x2="415" y2="128" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="224" x2="415" y2="224" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── BOTS (Docker containers) ── -->
+  <!-- Docker group box -->
+  <rect x="410" y="70" width="175" height="260" rx="12" fill="#f0fdf4" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="497" y="88" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="bold">🐳 Docker containers</text>
+
+  <!-- Telegram Bot -->
+  <rect x="425" y="96" width="145" height="95" rx="8" fill="#fff" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="497" y="117" text-anchor="middle" font-size="20">🤖</text>
+  <text x="497" y="136" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Telegram Bot</text>
+  <text x="497" y="152" text-anchor="middle" font-size="10" fill="#555">python-telegram-bot</text>
+  <text x="497" y="166" text-anchor="middle" font-size="10" fill="#555">Inline keyboards · voting</text>
+  <text x="497" y="180" text-anchor="middle" font-size="10" fill="#555">AI-powered free text</text>
+
+  <!-- Voice Bot -->
+  <rect x="425" y="202" width="145" height="95" rx="8" fill="#fff" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="497" y="223" text-anchor="middle" font-size="20">🎙️</text>
+  <text x="497" y="242" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Voice Bot</text>
+  <text x="497" y="258" text-anchor="middle" font-size="10" fill="#555">Flask + TeXML</text>
+  <text x="497" y="272" text-anchor="middle" font-size="10" fill="#555">DTMF menu · TTS</text>
+  <text x="497" y="286" text-anchor="middle" font-size="10" fill="#555">speech-to-text opinions</text>
+
+  <!-- ── SHARED LAYER ── -->
+  <!-- Shared data box -->
+  <rect x="425" y="308" width="145" height="8" rx="4" fill="#27ae60"/>
+  <rect x="410" y="316" width="175" height="80" rx="8" fill="#e8f8f0" stroke="#27ae60" stroke-width="1.2"/>
+  <text x="497" y="336" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a2340">Shared Layer</text>
+  <text x="497" y="352" text-anchor="middle" font-size="10" fill="#555">📄 Consultation data</text>
+  <text x="497" y="366" text-anchor="middle" font-size="10" fill="#555">🗳️ SQLite vote store</text>
+  <text x="497" y="380" text-anchor="middle" font-size="10" fill="#555">(Docker volume, shared)</text>
+
+  <!-- ── EXTERNAL AI ── -->
+  <rect x="635" y="96" width="145" height="95" rx="10" fill="#fdf2fb" stroke="#8e44ad" stroke-width="1.5"/>
+  <text x="707" y="117" text-anchor="middle" font-size="20">🧠</text>
+  <text x="707" y="136" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">OpenRouter</text>
+  <text x="707" y="152" text-anchor="middle" font-size="10" fill="#555">DeepSeek V4 Flash</text>
+  <text x="707" y="168" text-anchor="middle" font-size="10" fill="#555">Empathetic replies</text>
+  <text x="707" y="184" text-anchor="middle" font-size="10" fill="#555">to citizen opinions</text>
+
+  <!-- Telegram bot → OpenRouter arrow -->
+  <line x1="570" y1="143" x2="635" y2="143" stroke="#8e44ad" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowPurple)"/>
+  <text x="602" y="136" text-anchor="middle" font-size="9" fill="#8e44ad">API</text>
+
+  <!-- ── INFISICAL secrets ── -->
+  <rect x="635" y="218" width="145" height="80" rx="10" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="707" y="239" text-anchor="middle" font-size="20">🔐</text>
+  <text x="707" y="258" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2340">Infisical</text>
+  <text x="707" y="274" text-anchor="middle" font-size="10" fill="#555">Secrets manager</text>
+  <text x="707" y="290" text-anchor="middle" font-size="10" fill="#555">(API keys stored here)</text>
+
+  <!-- secrets arrow to containers -->
+  <line x1="635" y1="258" x2="585" y2="258" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowOrange)"/>
+  <text x="612" y="250" text-anchor="middle" font-size="9" fill="#f39c12">inject</text>
+
+  <!-- ── SERVER BOX ── -->
+  <rect x="390" y="52" width="450" height="395" rx="14" fill="none" stroke="#7f8c8d" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="615" y="470" text-anchor="middle" font-size="10" fill="#7f8c8d">Hetzner VPS — Ubuntu 22.04 · 4 GB RAM</text>
+
+  <!-- ── LEGEND ── -->
+  <rect x="50" y="430" width="830" height="110" rx="10" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="70" y="454" font-size="11" font-weight="bold" fill="#1a2340">How it works</text>
+
+  <circle cx="70" cy="474" r="9" fill="#4a7aec" opacity="0.2"/>
+  <text x="70" y="478" text-anchor="middle" font-size="9" fill="#4a7aec" font-weight="bold">1</text>
+  <text x="86" y="479" font-size="10" fill="#333">Citizen opens Telegram or dials a phone number</text>
+
+  <circle cx="70" cy="496" r="9" fill="#4a7aec" opacity="0.2"/>
+  <text x="70" y="500" text-anchor="middle" font-size="9" fill="#4a7aec" font-weight="bold">2</text>
+  <text x="86" y="501" font-size="10" fill="#333">Caddy (for Telegram) or Telnyx (for calls) routes the request to the right bot container</text>
+
+  <circle cx="70" cy="518" r="9" fill="#4a7aec" opacity="0.2"/>
+  <text x="70" y="522" text-anchor="middle" font-size="9" fill="#4a7aec" font-weight="bold">3</text>
+  <text x="86" y="523" font-size="10" fill="#333">Both bots share the same SQLite database — votes cast on Telegram are visible from the voice menu and vice-versa</text>
+
+  <circle cx="430" cy="474" r="9" fill="#4a7aec" opacity="0.2"/>
+  <text x="430" y="478" text-anchor="middle" font-size="9" fill="#4a7aec" font-weight="bold">4</text>
+  <text x="446" y="479" font-size="10" fill="#333">When a citizen types a free-text opinion, the Telegram bot sends it to DeepSeek V4 Flash (via OpenRouter)</text>
+
+  <circle cx="430" cy="496" r="9" fill="#4a7aec" opacity="0.2"/>
+  <text x="430" y="500" text-anchor="middle" font-size="9" fill="#4a7aec" font-weight="bold">5</text>
+  <text x="446" y="501" font-size="10" fill="#333">All API keys are stored in Infisical (secret manager) — never hardcoded, injected at container startup</text>
+
+  <!-- arrowhead markers -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8e44ad"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f39c12"/>
+    </marker>
+  </defs>
+</svg>
